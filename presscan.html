@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Imgur-Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet" media="screen">
+    <link href="./css/mobile-style.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="./favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body style="background-image: url(./pres.png);
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;height: 100vh;overflow: hidden;">
+     <div id="preloader"></div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top " >
+        <div class="container-fluid">
+          <img src="./icon.png" height="60px" width="120px" id="mainlogo">
+          <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+             
+            </div>
+           
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="index.html" >Home</a>
+              <a class="nav-item nav-link" href="about.html">About</a>
+              <div class="dropdown ">
+                <a class="dropbtn nav-item nav-link" style="color: black;font-weight: 600;">Dropdown 
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+              <a class="nav-item nav-link" href="services.html" >Services</a>
+              <a class="nav-item nav-link" href="#contact">Contact </a>
+              <a class="nav-item nav-link" href="login.html" >Login </a>
+            </div>
+            
+          </div>
+          
+        </div>
+      </nav>
+    <div class="mainer" style="margin: 8em 0px;">
+        <div class="container">
+            <div class="title" style="margin:2em auto">
+                <h1><b>Prescription Scan</b></h1>
+               
+            </div>
+            <div class="dropzone">
+                <div class="info"></div>
+            </div>
+        </div>
+    </div>
+  
+   
+    <script>
+      AOS.init();
+    </script>
+    <script>
+        $(document).ready(function () {
+  $(window).on('scroll', function () {
+
+  if ($(this).scrollTop() > 0) {
+      if (!$('nav').hasClass('navbar-scrolled')) {
+          $('nav').addClass('navbar-scrolled');
+          console.log()
+      }
+  } else {
+      if ($('nav').hasClass('navbar-scrolled')) {
+          $('nav').removeClass('navbar-scrolled');
+      }
+  }
+  });
+ 
+})
+
+const map = document.querySelector('#contact')
+
+// simulates arriving at #Who-We-Are for the purpose of this example
+  
+      addEventListener('DOMContentLoaded', event => {
+      if (window.location.hash === 'contact') {
+          map.scrollIntoView({behavior: "smooth", block: "start"});
+      }
+      });
+      </script>
+    
+    <script type="text/javascript" src="./js/imgur.js"></script>
+    <script type="text/javascript" src="./js/upload.js"></script>
+    <script type="text/javascript">
+    	// console.log(document.getElementsByClass("image-url").value);
+    	// var url="https://api.ocr.space/parse/imageurl?apikey=de092d644088957&url="+document.getElementsByClassName("image-url")[0].value+"&OCREngine=2";
+    	// console.log(url);
+    </script>
+       <script>
+        $(function () {
+        setTimeout(function () {
+          $('#preloader').fadeOut('slow', function () {
+            $(this).remove();
+          });
+        }, 2000);
+      });
+      </script>
+</body>
+
+</html>
