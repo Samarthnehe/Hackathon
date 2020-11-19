@@ -20,8 +20,18 @@ body.loading .loading-modal {
     margin-left: auto;
     max-width: 50%;
     background-color: white;
+    margin-bottom:20px;
 }
-
+.dropzone1 {
+    padding:20px;
+    border: 4px dashed black;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
+    background-color: white;
+    margin-bottom:20px;
+}
 .info {
     margin-top: 11%;
 }
