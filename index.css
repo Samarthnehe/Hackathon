@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+
+}
+.bg-steel {
+    background-color: transparent;
+    
+  }
+  .navbar-scrolled{
+      background-color: #41B7B7;
+      box-shadow:0px 0px 10px 0px rgba(0,0,0,0.6);
+  }
+  #navbarToggle > div:nth-child(2) > a{
+      color: black;
+      margin:0px 0.8em;
+      font-weight: 600;
+  }
+  #email{
+      margin-top:30px;
+  }
+  .topper{
+    background-image: url(../signup.png);
+    height: 100vh;
+    margin-top:0px;
+    padding-top: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.check{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#img{
+margin-bottom: 30px;
+}
+.main{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+}
+.main2{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#myChart{
+    width:1000px;
+    height: 10px;
+}

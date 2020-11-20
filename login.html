@@ -45,27 +45,24 @@
         <div class="login1">
             <div class="info1">
                 <h2 style="text-align: center;"><b>Login</b></h2>
-                <div>
-                    <form action="https://formspree.io/f/xleonzpa" method="POST" >
+                <div class="form">
                         <div class="form-group mb-2" >
                          
-                          <input name="username" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" placeholder="Username">
+                          <input name="username" type="text" class="form-control email" id="exampleInputEmail1" required aria-describedby="emailHelp" placeholder="Username">
                           
                         </div>
                         <div class="form-group">
                           
-                          <input name="password" type="password" class="form-control " id="exampleInputPassword1" required placeholder="Password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" >
+                          <input name="password" type="password" class="form-control pass" id="exampleInputPassword1" required placeholder="Password" >
                         </div>
                        
                        
                         <div style="display: flex;justify-content: center;">
-                            <button type="submit" class="btn " style="background-color: #31820B;color:white;width: 100%">Submit</button>
+                            <button  class="btn " style="background-color: #31820B;color:white;width: 100%" onclick="login()">Submit</button>
                         </div>
-                        
-                      </form>
                 </div>
                 <div class="signin">
-                    <h5>Dont have an account? <span><a href="./signup.html">Sign In</a></span></h5>
+                    <h5>Dont have an account? <span><a href="./signup.html">Sign Up</a></span></h5>
                 </div>
                 
             </div>
@@ -74,7 +71,7 @@
       </div>
       
       
-
+<script src="./js/index.js"></script>
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script>
         AOS.init();
