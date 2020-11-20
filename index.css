@@ -27,7 +27,8 @@ body{
   }
   .topper{
     background-image: url(../signup.png);
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     margin-top:0px;
     padding-top: 150px;
     background-repeat: no-repeat;
@@ -42,7 +43,9 @@ body{
     flex-direction: column;
 }
 
-
+.add{
+    margin: 1em auto;
+}
 #img{
 margin-bottom: 30px;
 }
