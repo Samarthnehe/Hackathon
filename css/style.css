@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Imgur Upload Style */
+
 
 body.loading .loading-modal {
     display: block
@@ -11,7 +11,19 @@ body.loading .loading-modal {
     margin-left: auto;
     text-align: center;
 }
-
+.calender{
+    float: right;
+    background: cyan;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+}
+.calender:hover{
+    background-color:turquoise;
+}
 .dropzone {
     border: 4px dashed black;
     height: 200px;
@@ -37,8 +49,6 @@ body.loading .loading-modal {
 }
 
 .dropzone p {
-    /*height: 100%;*/
-    /*line-height: 200px;*/
     margin: 0%;
     text-align: center;
     width: 100%
