@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HACK</title>
+    <title>WECARE</title>
     <link type="text/css" rel="stylesheet" href="index.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="./icon1.png">
     <!--Css Doodle-->
     <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
     <!-- Bootstrap CSS -->
@@ -50,13 +51,73 @@
                <h4 id="email" style="color:white;"></h4>
             </div>
             <div class="col-4 card check" data-aos="fade-right" style=" background-color: rgb(43, 41,41);border-radius: 8px;">
-              <h1 style="margin-bottom: 50px;margin-top: 50px;color:white;">Common Diseases</h1>
-              <canvas id="myChart" style="margin-bottom: 100px"></canvas>
+              <h1 style="margin-bottom: 50px;margin-top: 50px;color:white;">BMI CALCULATOR</h1>
+              <!-- <div>
+                <div>
+                  <label for="height" style="color:white">HEIGHT</label>
+                  <input type="number" id="height" placeholder="in cms">
+                </div>
+                <div>
+                  <label for="weight" style="color:white">WEIGHT</label>
+                  <input type="number" id="weight" placeholder="in kgs">
+                </div>
+                <div>
+                  <button id="calc" class="btn btn-primary">Calculate</button>
+                </div>
+                <div id="bmi" style="color:white"></div>
+              </div> -->
+              <form name="bmiForm">
+                <div>
+                  <label for="weight" style="color:white;">Your Weight(kg): </label>
+                  <input type="text" name="weight" size="10" style="border-radius:3px;border:none;background:rgb(207, 206, 206);"><br />
+                </div>
+                <div>
+                  <label for="height" style="color:white;">Your Height(cm): </label>
+                  <input type="text" name="height" size="10" style="border-radius:3px;border:none;background:rgb(207, 206, 206);"><br />
+                </div>
+                <div>
+                  <input type="button" class="btn btn-primary" style="margin: 5px auto;" value="Calculate BMI" onClick="calculateBmi()"><br />
+                </div>
+                <!-- Your BMI: <input type="text" name="bmi" size="10"><br />
+                This Means: <input type="text" name="meaning" size="25"><br />
+                <input type="reset" value="Reset" /> -->
+                </form>
+                <div id="bmi" style="color: white;margin: 5px auto;border-radius:5px;padding: 5px 5px;"></div>
+              <!-- <canvas id="myChart" style="margin-bottom: 100px"></canvas> -->
             </div>
         </div>
          
        </div>
-   
+      <script>
+        function calculateBmi() {
+          var weight = document.bmiForm.weight.value;
+          var height = document.bmiForm.height.value;
+          var disp = document.getElementById("bmi");
+          if(weight > 0 && height > 0){	
+            var finalBmi = weight/(height/100*height/100)
+            finalBmi=finalBmi.toFixed(2);
+            if(finalBmi < 18.5){
+              disp.innerHTML=`A BMI of <strong>${finalBmi}</strong> indicates that you are <strong>Underweight</strong>, so you may need to put on some weight. You are recommended to ask your doctor or a dietitian for advice.`
+              disp.style.background="rgb(221 147 52)";
+            }
+            if(finalBmi > 18.5 && finalBmi < 25){
+              disp.innerHTML=`A BMI of <strong>${finalBmi}</strong> indicates that you are at a <strong>Healthy</strong> weight for your height. By maintaining a healthy weight, you lower your risk of developing serious health problems.`
+              disp.style.background="green";
+            }
+            if(finalBmi > 25 && finalBmi < 29.9){
+              disp.innerHTML=`A BMI of <strong>${finalBmi}</strong> indicates that you are <strong>Slightly Overweight</strong>. You may be advised to lose some weight for health reasons. You are recommended to talk to your doctor or a dietitian for advice.`
+              disp.style.background="rgb(221 147 52)";
+            }
+            if(finalBmi > 29.9){
+              disp.innerHTML=`A BMI of <strong>${finalBmi}</strong> indicates that you are <strong>Obese</strong>. Your health may be at risk if you do not lose weight. You are recommended to talk to your doctor or a dietitian for advice.`
+              disp.style.background="#fd6060";
+            }
+            }
+            else{
+              alert("Please Fill in everything correctly")
+          }
+        }
+      </script>
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
       <script>
@@ -64,38 +125,21 @@
       </script>
       <script>
           $(document).ready(function () {
-    $(window).on('scroll', function () {
-  
-    if ($(this).scrollTop() > 0) {
-        if (!$('nav').hasClass('navbar-scrolled')) {
-            $('nav').addClass('navbar-scrolled');
-            console.log()
-        }
-    } else {
-        if ($('nav').hasClass('navbar-scrolled')) {
-            $('nav').removeClass('navbar-scrolled');
-        }
-    }
-    });
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      backgroundColor: [
-        "#2ecc71",
-        "#3498db",
-        "#95a5a6",
-        "#9b59b6",
-        "#f1c40f",
-        "#e74c3c",
-        "#34495e"
-      ],
-      data: [12, 19, 3, 17, 28, 24, 7]
-    }]
-  }
-});
-  })
+            $(window).on('scroll', function () {
+          
+            if ($(this).scrollTop() > 0) {
+                if (!$('nav').hasClass('navbar-scrolled')) {
+                    $('nav').addClass('navbar-scrolled');
+                    console.log()
+                }
+            } else {
+                if ($('nav').hasClass('navbar-scrolled')) {
+                    $('nav').removeClass('navbar-scrolled');
+                }
+            }
+          });
+            
+          })
         </script>
 <script src="./js/index.js"></script>
           
