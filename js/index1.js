@@ -1,7 +1,7 @@
 var $messages = $('.messages-content');
 var serverResponse = "wala";
 
-
+var dis=["asthma","covid","common cold","diabeties","depression","arthiritis","diarrhoea","migraine","high cholestrol","obesity","sore throat"]
 var suggession;
 //speech reco
 try {
@@ -37,8 +37,64 @@ $(window).load(function() {
   setTimeout(function() {
     serverMessage("Hello I am your Medi Bot");
     speechSynthesis.speak( new SpeechSynthesisUtterance('Hello I am your Medi Bot'))
-  }, 300);
+  }, 1000);
 
+});
+$(window).load(function() {
+  $messages.mCustomScrollbar();
+  setTimeout(function() {
+    serverMessage("Would you like to update me about any of your health problems, so that I can help you?");
+    speechSynthesis.speak( new SpeechSynthesisUtterance('Would you like to update me about any of your health problems, so that I can help you?'));
+
+    // var url = 'https://api-we-care.herokuapp.com/get/disease';
+    //   fetch(url, {
+    //     method: 'GET',
+    //     body:JSON.stringify(JSON.parse(localStorage.getItem("user"))._id)
+    //   }).then(res => res.json())
+    //    .then(response => {
+    //     console.log(response);
+    //     serverMessage("Current data available in my databae :");
+    //     speechSynthesis.speak( new SpeechSynthesisUtterance("Current data available in my databae :"));
+    //     for(var i=0;i<response.data.length;i++)
+    //     {
+    //       serverMessage(response.data[i]);
+    //     }
+    //    })
+    //     .catch(error => console.error('Error h:', error));
+
+   
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://api-we-care.herokuapp.com/bot/disease/5fb6853599fae90017df2c2c", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.send()
+
+    xh.onload=function(){
+        if(this.status==200)
+        {
+          var response=JSON.parse(this.responseText)
+          if(response.data.length==0)
+          {
+            setTimeout(function(){
+              serverMessage("Currently my database is empty");
+              speechSynthesis.speak( new SpeechSynthesisUtterance("Currently my database is empty"));
+            },6000)
+          }
+          else
+          {
+            setTimeout(function(){
+              for(var i=0;i<response.data.length;i++)
+            {
+              serverMessage(response.data[i]);
+            }
+            },10000)
+          }
+        }
+          
+        else{
+            console.log("err")
+        }
+}
+  }, 3000);
 });
 
 function updateScrollbar() {
@@ -47,8 +103,6 @@ function updateScrollbar() {
     timeout: 0
   });
 }
-
-
 
 function insertMessage() {
   msg = $('.message-input').val();
@@ -97,12 +151,33 @@ function fetchmsg(){
      var url = 'https://api-we-care.herokuapp.com/sendMsg';
       
       const data = new URLSearchParams();
+      var query
       for (const pair of new FormData(document.getElementById("mymsg"))) {
           data.append(pair[0], pair[1]);
-          console.log(pair)
+          query=pair
       }
+      console.log(query)
+      if(dis.includes(query[1]))
+      {
+        var xh = new XMLHttpRequest();
+        xh.open("POST", `https://api-we-care.herokuapp.com/add/disease/5fb6853599fae90017df2c2c?name=${query[1]}`, true)
+        xh.setRequestHeader('Content-Type', 'application/json')
+        xh.send()
     
-      console.log("abc",data)
+        xh.onload=function(){
+            if(this.status==201)
+            {
+                serverMessage("Okay Noted. Please say end when you are done");
+                speechSynthesis.speak( new SpeechSynthesisUtterance("Okay Noted"));
+            }
+            else{
+              serverMessage("Couldn't add to database")
+            }
+    }
+      }
+      else
+      {
+        console.log("abc",data)
         fetch(url, {
           method: 'POST',
           body:data
@@ -117,10 +192,7 @@ function fetchmsg(){
           {
             weather()
           }
-          // else if(response.Reply=="news")
-          // {
-          //   news()
-          // }
+          
           else{
             serverMessage(response.Reply);
             speechSynthesis.speak( new SpeechSynthesisUtterance(response.Reply))
@@ -129,6 +201,8 @@ function fetchmsg(){
           
          })
           .catch(error => console.error('Error h:', error));
+      }
+      
 
 }
 
