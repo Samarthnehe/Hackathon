@@ -3,10 +3,6 @@ var feedback = function(res) {
     if (res.success === true) {
         var get_link = res.data.link.replace(/^http:\/\//i, 'https://');
         document.querySelector('.status').classList.add('bg-success');
-        // document.querySelector('.status').innerHTML =
-        //     'Image : ' + '<br><input class="image-url" value=\"' + get_link + '\"/>' + '<img class="img" alt="Imgur-Upload" src=\"' + get_link + '\"/>';
-		// document.querySelector('.status').innerHTML =
-        //     'Image : ' + '<br><input class="image-url" value=\"' + get_link + '\"/>';
 		var url="https://api.ocr.space/parse/imageurl?apikey=de092d644088957&url="+get_link +"&OCREngine=2";
     	console.log(url);
     	var xhttp = new XMLHttpRequest();
@@ -15,9 +11,15 @@ var feedback = function(res) {
 		      var data=JSON.parse(this.responseText);
 		      data=data.ParsedResults[0].ParsedText;
 		      data=JSON.stringify(data)
-		      // console.log(data);
+		      
 			  data=data.split("\\n");
 			  var j=[]
+			  var today = new Date();
+			  var dd = String(today.getDate()).padStart(2, '0');
+			  var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+			  var yyyy = today.getFullYear();
+
+			  today = yyyy+mm+dd;
 			  var show="<span><strong style='text-align:center;'>Prescription</strong> <br> ";
 		      for(var i=14;i<data.length;i=i+3){
 				var k={"name":data[i],"frequency":data[i+1],"description":data[i+2]};
@@ -25,24 +27,24 @@ var feedback = function(res) {
 
 				if(data[i+1][0]=='1'){
 					show=show+"Morning:   10 AM  ";
-					show=show+"<div title='Add to Calendar' class='addeventatc'>Add to Calendar<span class='start'>12/04/2020 08:00 AM</span><span class='end'>12/04/2020 10:00 AM</span><span class='timezone'>America/Los_Angeles</span><span class='title'>Take Medicine</span><span class='description'>Description of the event</span><span class='location'>Location of the event</span></div><br>"
+					show=show+`<a class="calender" target="_blank" href="http://www.google.com/calendar/event?action=TEMPLATE&text=Take%20Medicine&dates=${today}T100000Z/${today}T110000&details=Take%20${data[i]}%20${data[i+2]}">Add to Calender</a><br><br>`;
 				}
 				if(data[i+1][2]=='1'){
 					show=show+"Afternoon: 2 PM   ";
-					show=show+"<div title='Add to Calendar' class='addeventatc'>Add to Calendar<span class='start'>12/04/2020 08:00 AM</span><span class='end'>12/04/2020 10:00 AM</span><span class='timezone'>America/Los_Angeles</span><span class='title'>Take Medicine</span><span class='description'>Description of the event</span><span class='location'>Location of the event</span></div><br>"
+					show=show+`<a class="calender" target="_blank" href="http://www.google.com/calendar/event?action=TEMPLATE&text=Take%20Medicine&dates=${today}T140000Z/${today}T150000&details=Take%20${data[i]}%20${data[i+2]}">Add to Calender</a><br><br>`;
 				}
 				if(data[i+1][4]=='1'){
 					show=show+"Evening:   6 PM   ";
-					show=show+"<div title='Add to Calendar' class='addeventatc'>Add to Calendar<span class='start'>12/04/2020 08:00 AM</span><span class='end'>12/04/2020 10:00 AM</span><span class='timezone'>America/Los_Angeles</span><span class='title'>Take Medicine</span><span class='description'>Description of the event</span><span class='location'>Location of the event</span></div><br>"
+					show=show+`<a class="calender" target="_blank" href="http://www.google.com/calendar/event?action=TEMPLATE&text=Take%20Medicine&dates=${today}T180000Z/${today}T190000&details=Take%20${data[i]}%20${data[i+2]}">Add to Calender</a><br><br>`;
 				}
 				if(data[i+1][6]=='1'){
 					show=show+"Night:     9 PM   ";
-					show=show+"<div title='Add to Calendar' class='addeventatc'>Add to Calendar<span class='start'>12/04/2020 08:00 AM</span><span class='end'>12/04/2020 10:00 AM</span><span class='timezone'>America/Los_Angeles</span><span class='title'>Take Medicine</span><span class='description'>Description of the event</span><span class='location'>Location of the event</span></div><br>"
+					show=show+`<a class="calender" target="_blank" href="http://www.google.com/calendar/event?action=TEMPLATE&text=Take%20Medicine&dates=${today}T210000Z/${today}T220000&details=Take%20${data[i]}%20${data[i+2]}">Add to Calender</a><br><br>`;
 				}
 
-				show=show+" <br> "+"Description: "+data[i+2]+" <br><br> ";
+				show=show+"Description: "+data[i+2]+" <br><hr> ";
 		      	j.push(k);
-		      	// console.log(data[i]+" "+data[i+1]+" "+data[i+2]);
+		      	
 			  }
 			  show=show+"</span>";
 			  console.log(j);
@@ -58,7 +60,7 @@ var feedback = function(res) {
 };
 
 new Imgur({
-    clientid: '8740ef1c6f7e22b', //You can change this ClientID
+    clientid: '8740ef1c6f7e22b', 
     callback: feedback
 });
-{/* <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script> */}
+
