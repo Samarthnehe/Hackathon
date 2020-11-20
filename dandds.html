@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HACK</title>
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!--Css Doodle-->
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top " >
+        <div class="container-fluid">
+          <h3><b>Hack</b></h3>
+          <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+             
+            </div>
+           
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="dashboard.html" >Dashboard</a>
+              <a class="nav-item nav-link" href="#">ChatBot</a>
+              <a class="nav-item nav-link" href="presscan.html">Prescription Scan</a>
+              <a class="nav-item nav-link" href="dandds.html">Do's and Don't s</a>
+              <a class="nav-item nav-link" href="#">Logout</a>
+            </div>
+            
+          </div>
+          
+        </div>
+      </nav>
+       <div class="topper">
+        <div class="main2">
+            <div class="col-5 card check" data-aos="fade-left" style="text-align:center;">
+               <h1 id="name" style="color:#3bb54a;margin-top: 100px;">Do's  <img src="./yes.svg" style=" margin-left:10px;width: 40px;"></h1>
+               <h2 id="desig">Patient</h2>
+               <h4 id="email">jai9399@gmail.com</h4>
+               <h4 id="number">8489170582</h4>
+            </div>
+            <div class="col-5 card check" data-aos="fade-right">
+                <h1 id="name" style="color:#f44336;margin-top: 100px;">Don't s  <img src="./remove.svg" style="margin-left:10px;width: 40px;"></h1>
+                <h2 id="desig">Patient</h2>
+               <h4 id="email">jai9399@gmail.com</h4>
+               <h4 id="number">8489170582</h4>
+            </div>
+        </div>
+         
+       </div>
+
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+      <script>
+          $(document).ready(function () {
+    $(window).on('scroll', function () {
+  
+    if ($(this).scrollTop() > 0) {
+        if (!$('nav').hasClass('navbar-scrolled')) {
+            $('nav').addClass('navbar-scrolled');
+            console.log()
+        }
+    } else {
+        if ($('nav').hasClass('navbar-scrolled')) {
+            $('nav').removeClass('navbar-scrolled');
+        }
+    }
+    });
+   
+  })
+        </script>
+</body>
+
+</html>
