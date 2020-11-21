@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HealthWatcher</string>
+    <string name="app_name">We Care</string>
     <string name="msg">Please enable all permission</string>
 
     <string-array name="Gender">

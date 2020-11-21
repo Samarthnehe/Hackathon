@@ -10,7 +10,7 @@
     android:paddingTop="16dp"
     android:paddingRight="64dp"
     android:paddingBottom="16dp"
-    tools:context="com.example.yo7a.healthwatcher.O2Process">
+    tools:context="com.example.weCare.application.O2Process">
 
     <SurfaceView
         android:id="@+id/preview"
