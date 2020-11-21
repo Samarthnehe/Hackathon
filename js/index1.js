@@ -1,7 +1,7 @@
 var $messages = $('.messages-content');
 var serverResponse = "wala";
 
-var dis=["asthma","covid","common cold","diabeties","depression","arthiritis","diarrhoea","migraine","high cholestrol","obesity","sore throat"]
+var dis=["asthma","covid","common cold","diabetes","depression","arthiritis","diarrhoea","migraine","high cholestrol","obesity","sore throat"]
 var suggession;
 //speech reco
 try {

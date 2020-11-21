@@ -90,7 +90,7 @@ Chat Title
   position: absolute;
   z-index: 1;
   top: 8px;
-  left: 9px;
+  left: 38%;
   border-radius: 30px;
   width: 30px;
   height: 30px;
@@ -98,7 +98,7 @@ Chat Title
   margin: 0;
   padding: 0;
   border: 2px solid rgba(255, 255, 255, 0.24);
-  margin-left: 500px;
+  
   height: 35px;
   width: 35px;
 }
