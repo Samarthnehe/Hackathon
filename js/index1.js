@@ -249,7 +249,7 @@ function weather()
 {
    var lat;
     var long;
-    var url="http://api.openweathermap.org/data/2.5/weather?"
+    var url="https://api.openweathermap.org/data/2.5/weather?"
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(async(position)=> {
                 lat  = position.coords.latitude;
