@@ -76,14 +76,15 @@ Chat Title
 }
 .chat-title h1, .chat-title h2 {
   font-weight: normal;
-  font-size: 12px;
+  font-size: 30px;
   margin: 0;
   padding: 0;
 }
 .chat-title h2 {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 8px;
+  font-size: 15px;
   letter-spacing: 1px;
+  text-align: center;
 }
 .chat-title .avatar {
   position: absolute;
@@ -97,6 +98,9 @@ Chat Title
   margin: 0;
   padding: 0;
   border: 2px solid rgba(255, 255, 255, 0.24);
+  margin-left: 500px;
+  height: 35px;
+  width: 35px;
 }
 .chat-title .avatar img {
   width: 100%;
@@ -127,7 +131,7 @@ Messages
   border-radius: 10px 10px 10px 0;
   background: rgba(0, 0, 0, 0.3);
   margin: 8px 0;
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.4;
   margin-left: 35px;
   position: relative;
@@ -271,8 +275,8 @@ Message Box
   border: none;
   outline: none !important;
   resize: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
+  color: white;
+  font-size: 15px;
   height: 17px;
   margin: 0;
   padding-right: 20px;
@@ -289,7 +293,7 @@ Message Box
   color: #fff;
   border: none;
   background: #248A52;
-  font-size: 10px;
+  font-size: 15px;
   text-transform: uppercase;
   line-height: 1;
   padding: 6px 10px;
