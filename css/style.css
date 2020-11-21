@@ -13,17 +13,17 @@ body.loading .loading-modal {
 }
 .calender{
     float: right;
-    background: cyan;
+    background: #31820B;
     margin-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 4px;
     text-decoration: none;
-    color: black;
+    color: white;
 }
-.calender:hover{
-    background-color:turquoise;
-}
+/* .calender:hover{
+    box-shadow: 3px 2px 2px 3px;
+} */
 .dropzone {
     border: 4px dashed black;
     height: 200px;
