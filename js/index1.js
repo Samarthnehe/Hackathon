@@ -160,7 +160,8 @@ function fetchmsg(){
       if(dis.includes(query[1]))
       {
         var xh = new XMLHttpRequest();
-        xh.open("POST", `https://api-we-care.herokuapp.com/add/disease/5fb6853599fae90017df2c2c?name=${query[1]}`, true)
+        var id=JSON.parse(localStorage.getItem("user"))._id
+        xh.open("POST", `https://api-we-care.herokuapp.com/add/disease/${id}?name=${query[1]}`, true)
         xh.setRequestHeader('Content-Type', 'application/json')
         xh.send()
     
