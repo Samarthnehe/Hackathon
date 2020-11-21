@@ -10,7 +10,7 @@
     android:paddingTop="16dp"
     android:paddingRight="64dp"
     android:paddingBottom="16dp"
-    tools:context="com.example.yo7a.healthwatcher.BloodPressureProcess">
+    tools:context="com.example.weCare.application.BloodPressureProcess">
 
 
     <SurfaceView

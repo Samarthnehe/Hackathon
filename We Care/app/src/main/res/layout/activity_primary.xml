@@ -13,7 +13,7 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     android:weightSum="1"
-    tools:context="com.example.yo7a.healthwatcher.Primary">
+    tools:context="com.example.weCare.application.Primary">
 
 
     <ImageView
