@@ -1,7 +1,7 @@
 var $messages = $('.messages-content');
 var serverResponse = "wala";
 
-var dis=["asthma","covid","common cold","diabeties","depression","arthiritis","diarrhoea","migraine","high cholestrol","obesity","sore throat"]
+var dis=["asthma","covid","common cold","diabetes","depression","arthiritis","diarrhoea","migraine","high cholestrol","obesity","sore throat"]
 var suggession;
 //speech reco
 try {
@@ -43,59 +43,77 @@ $(window).load(function() {
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    serverMessage("Would you like to update me about any of your health problems, so that I can help you?");
-    speechSynthesis.speak( new SpeechSynthesisUtterance('Would you like to update me about any of your health problems, so that I can help you?'));
-
-    // var url = 'https://api-we-care.herokuapp.com/get/disease';
-    //   fetch(url, {
-    //     method: 'GET',
-    //     body:JSON.stringify(JSON.parse(localStorage.getItem("user"))._id)
-    //   }).then(res => res.json())
-    //    .then(response => {
-    //     console.log(response);
-    //     serverMessage("Current data available in my databae :");
-    //     speechSynthesis.speak( new SpeechSynthesisUtterance("Current data available in my databae :"));
-    //     for(var i=0;i<response.data.length;i++)
-    //     {
-    //       serverMessage(response.data[i]);
-    //     }
-    //    })
-    //     .catch(error => console.error('Error h:', error));
-
-   
-    var xh = new XMLHttpRequest();
-    xh.open("GET", "https://api-we-care.herokuapp.com/bot/disease/5fb6853599fae90017df2c2c", true)
-    xh.setRequestHeader('Content-Type', 'application/json')
-    xh.send()
-
-    xh.onload=function(){
-        if(this.status==200)
-        {
-          var response=JSON.parse(this.responseText)
-          if(response.data.length==0)
-          {
-            setTimeout(function(){
-              serverMessage("Currently my database is empty");
-              speechSynthesis.speak( new SpeechSynthesisUtterance("Currently my database is empty"));
-            },6000)
-          }
-          else
-          {
-            setTimeout(function(){
-              for(var i=0;i<response.data.length;i++)
-            {
-              serverMessage(response.data[i]);
-            }
-            },10000)
-          }
-        }
-          
-        else{
-            console.log("err")
-        }
-}
+    serverMessage("You can chat with me using text or speech ,and I will try to answer your questions. Some of the features that I provide are:");
   }, 3000);
-});
+})
+
+  $(window).load(function() {
+    $messages.mCustomScrollbar();
+    setTimeout(function() {
+      serverMessage(`Say "help" to see what all I can do for you`);
+      speechSynthesis.speak( new SpeechSynthesisUtterance('`Say help to see what all I can do for you`'))
+    }, 5000);
+  })
+  // $(window).load(function() {
+  //   $messages.mCustomScrollbar();
+  //   setTimeout(function() {
+  //     serverMessage("Hospital Search - Not sure about the hospital nearby? I can show you all the hospitals that are around you, and you can easily navigate to them.");
+  //   }, 7000);
+  // })
+  // $(window).load(function() {
+  //   $messages.mCustomScrollbar();
+  //   setTimeout(function() {
+  //     serverMessage("Weather- I can help you tell the weather at your location.");
+  //   }, 9000);
+  // })
+  // $(window).load(function() {
+  //   $messages.mCustomScrollbar();
+  //   setTimeout(function() {
+  //     serverMessage("News - Want to know what's trending? I can provide you with the top 5 hot news of the day.");
+  //   }, 11000);
+  // })
+
+// $(window).load(function() {
+//   $messages.mCustomScrollbar();
+//   setTimeout(function() {
+  
+//     var xh = new XMLHttpRequest();
+//     xh.open("GET", "https://api-we-care.herokuapp.com/bot/disease/5fb6853599fae90017df2c2c", true)
+//     xh.setRequestHeader('Content-Type', 'application/json')
+//     xh.send()
+
+//     xh.onload=function(){
+//         if(this.status==200)
+//         {
+//           var response=JSON.parse(this.responseText)
+//           if(response.data.length==0)
+//           {
+//             setTimeout(function(){
+//               serverMessage("Currently my database is empty");
+//               speechSynthesis.speak( new SpeechSynthesisUtterance("Currently my database is empty"));
+//             },8000)
+//           }
+//           else
+//           {
+//             setTimeout(function(){
+//               serverMessage("Till now you have notified me with the following problems");
+//               speechSynthesis.speak( new SpeechSynthesisUtterance("Till now you have notified me with the following problems"));
+//             },8000)
+//             setTimeout(function(){
+//               for(var i=0;i<response.data.length;i++)
+//             {
+//               serverMessage(response.data[i]);
+//             }
+//             },9000)
+//           }
+//         }
+          
+//         else{
+//             console.log("err")
+//         }
+// }
+//   }, 7000);
+// })
 
 function updateScrollbar() {
   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
@@ -103,6 +121,7 @@ function updateScrollbar() {
     timeout: 0
   });
 }
+
 
 function insertMessage() {
   msg = $('.message-input').val();
@@ -133,13 +152,13 @@ if(flg==1)
   if ($('.message-input').val() != '') {
     return false;
   }
-  $('<div class="message loading new"><figure class="avatar"><img src="css/bot.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  $('<div class="message loading new"><figure class="avatar"><img src="./css/bot.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
   
 
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="css/bot.png" /></figure>' + response2 + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="./css/bot.png" /></figure>' + response2 + '</div>').appendTo($('.mCSB_container')).addClass('new');
     updateScrollbar();
   }, 100 + (Math.random() * 20) * 100);
 
@@ -160,7 +179,8 @@ function fetchmsg(){
       if(dis.includes(query[1]))
       {
         var xh = new XMLHttpRequest();
-        xh.open("POST", `https://api-we-care.herokuapp.com/add/disease/5fb6853599fae90017df2c2c?name=${query[1]}`, true)
+        var id=JSON.parse(localStorage.getItem("user"))._id
+        xh.open("POST", `https://api-we-care.herokuapp.com/add/disease/${id}?name=${query[1]}`, true)
         xh.setRequestHeader('Content-Type', 'application/json')
         xh.send()
     

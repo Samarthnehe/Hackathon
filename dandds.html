@@ -17,7 +17,7 @@
      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
-<body>
+<body onload="suggestion()">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top " >
         <div class="container-fluid">
           <img src="./icon.png" height="60px" width="170px" id="mainlogo">
@@ -31,10 +31,10 @@
            
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="dashboard.html" >Dashboard</a>
-              <a class="nav-item nav-link" href="#">ChatBot</a>
+              <a class="nav-item nav-link" href="bot.html">ChatBot</a>
               <a class="nav-item nav-link" href="presscan.html">Prescription Scan</a>
               <a class="nav-item nav-link" href="dandds.html">Do's and Don't s</a>
-              <a class="nav-item nav-link" href="#">Logout</a>
+              <a class="nav-item nav-link" style="cursor: pointer;" onclick="logout()">Logout</a>
             </div>
             
           </div>
@@ -42,12 +42,12 @@
         </div>
       </nav>
        <div class="topper">
-        <div class="main2" style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
-            <div class="col-6 card add" data-aos="fade-left" style="border: 3px dashed black;">
+        <div class="main2" id="disp" style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
+            <!-- <div class="col-6 card add" data-aos="fade-left" style="border: 3px dashed black;">
               
                <div style="margin: 1em 2em;" >
                  <div style="display: flex;align-items: center;">
-                  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">+</button><h4 style="margin-left:5px;">Asthama</h4>
+                  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">+</button><h4 style="margin-left:10px;margin-bottom: 0;">DIABETES</h4>
                  </div>
                
                 <div id="demo" class="collapse">
@@ -55,8 +55,9 @@
                     <h5 style="color: green;"><b>DO'S</b></h5>
                     <div >
                       <ul>
-                        <li>Eat Well</li>
-                        <li>Sleep</li>
+                        <li>Make greens and vegetables part of your daily diet.</li>
+                        <li>Include 4-6 small frequent meals rather than 3- big meals a day.</li>
+                        <li>Chew your food well and drink sufficient amount of water.</li>
                       </ul>
                     </div>
                   </div>
@@ -64,8 +65,9 @@
                     <h5 style="color: red;"><b>DONT'S</b></h5>
                     <div>
                       <ul>
-                        <li>Junk Food</li>
-                        <li>Smoke</li>
+                        <li>Do not smoke</li>
+                        <li>Do not take full fat dairy products.</li>
+                        <li>Restrict fried and fatty foods.</li>
                       </ul>
                     </div>
                   </div>
@@ -79,7 +81,7 @@
               
               <div style="margin: 1em 2em;" >
                 <div style="display: flex;align-items: center;">
-                 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">+</button><h4 style="margin-left:5px;">Cancer</h4>
+                 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">+</button><h4 style="margin-left:10px;margin-bottom: 0;">ASTHAMA</h4>
                 </div>
               
                <div id="demo1" class="collapse">
@@ -87,8 +89,9 @@
                    <h5 style="color: green;"><b>DO'S</b></h5>
                    <div >
                      <ul>
-                       <li>Eat Well</li>
-                       <li>Sleep</li>
+                      <li>Take medicines regularly and without fail</li>
+                      <li>Take morning walks and if possible, perform yoga</li>
+                      <li>Take a simple diet at regular hours</li>
                      </ul>
                    </div>
                  </div>
@@ -96,8 +99,8 @@
                    <h5 style="color: red;"><b>DONT'S</b></h5>
                    <div>
                      <ul>
-                       <li>Junk Food</li>
-                       <li>Smoke</li>
+                      <li>Don’t forget your inhaler</li>
+                       <li>Do not over eat and avoid taking spicy food</li>
                      </ul>
                    </div>
                  </div>
@@ -106,13 +109,13 @@
                </div>
               </div>
             
-           </div>
+           </div> -->
 
           
         </div>
          
        </div>
-
+<script src="./js/index.js"></script>
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script>
         AOS.init();

@@ -14,10 +14,10 @@
 </head>
 
 <body style="background-image: url(./pres.png);
-height: 100vh;
+height: 100%;
 background-repeat: no-repeat;
-background-size: cover;height: 100vh;">
-     <div id="preloader"></div>
+background-size: cover;min-height: 100vh;">
+    
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top " >
         <div class="container-fluid">
           <img src="./icon.png" height="60px" width="120px" id="mainlogo">
@@ -31,10 +31,10 @@ background-size: cover;height: 100vh;">
            
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="dashboard.html" >Dashboard</a>
-              <a class="nav-item nav-link" href="#">ChatBot</a>
+              <a class="nav-item nav-link" href="bot.html">ChatBot</a>
               <a class="nav-item nav-link" href="presscan.html">Prescription Scan</a>
               <a class="nav-item nav-link" href="dandds.html">Do's and Don't s</a>
-              <a class="nav-item nav-link" href="#">Logout</a>
+              <a class="nav-item nav-link" style="cursor: pointer;" onclick="logout()">Logout</a>
             </div>
             
           </div>
@@ -58,6 +58,7 @@ background-size: cover;height: 100vh;">
     <script>
       AOS.init();
     </script>
+    <script src="./js/index.js"></script>
     <script>
         $(document).ready(function () {
   $(window).on('scroll', function () {
