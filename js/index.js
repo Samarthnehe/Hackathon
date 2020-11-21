@@ -130,3 +130,21 @@ function suggestion()
         }
 }
 }
+
+function logout()
+{
+    localStorage.removeItem('user')
+    localStorage.removeItem('JWT_Token')
+    window.location.replace('login.html')
+}
+
+function check()
+{
+    var jwt=localStorage.getItem('JWT_Token')
+    if(!jwt)
+    {
+        
+        window.location.replace('login.html')
+
+    }
+}
